@@ -11,8 +11,7 @@
   <meta name="description" content="#####Demo地址 
 #####官方Demo
 #####Tinker官方Wiki 
-#####新建项目，添加gradle依赖在项目的 build.gradle 中，添加tinker-patch-gradle-plugin的依赖
-1234567891011121314151617buildscript &amp;#123;    repositories &amp;#123;        jcenter()">
+#####新建项目，添加gradle依赖在项目的 build.gradle 中，添加tinker-patch-gradle-plugin的依赖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 热修复 Tinker接入">
 <meta property="og:url" content="https://cvmars.github.io/2017/02/09/Android-热修复-Tinker接入/index.html">
@@ -20,8 +19,7 @@
 <meta property="og:description" content="#####Demo地址 
 #####官方Demo
 #####Tinker官方Wiki 
-#####新建项目，添加gradle依赖在项目的 build.gradle 中，添加tinker-patch-gradle-plugin的依赖
-1234567891011121314151617buildscript &amp;#123;    repositories &amp;#123;        jcenter()">
+#####新建项目，添加gradle依赖在项目的 build.gradle 中，添加tinker-patch-gradle-plugin的依赖">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1908050-d64af2bf5688e92d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1908050-c1a2a6c38434be82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1908050-893b18263464efab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -34,14 +32,13 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1908050-19aab035f082357c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1908050-30da2c4f358ad44a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1908050-ec146a69642e4c0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-02-09T12:31:38.000Z">
+<meta property="og:updated_time" content="2017-02-09T12:46:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 热修复 Tinker接入">
 <meta name="twitter:description" content="#####Demo地址 
 #####官方Demo
 #####Tinker官方Wiki 
-#####新建项目，添加gradle依赖在项目的 build.gradle 中，添加tinker-patch-gradle-plugin的依赖
-1234567891011121314151617buildscript &amp;#123;    repositories &amp;#123;        jcenter()">
+#####新建项目，添加gradle依赖在项目的 build.gradle 中，添加tinker-patch-gradle-plugin的依赖">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1908050-d64af2bf5688e92d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="cvmars的个人主页" type="application/atom+xml">
@@ -206,6 +203,7 @@
 <p>#####<a href="https://github.com/Tencent/tinker" target="_blank" rel="external">官方Demo</a></p>
 <p>#####<a href="https://github.com/Tencent/tinker/wiki" target="_blank" rel="external">Tinker官方Wiki </a></p>
 <p>#####新建项目，添加gradle依赖在项目的 build.gradle 中，添加tinker-patch-gradle-plugin的依赖</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.2.0&apos;</div><div class="line">        classpath (&apos;com.tencent.tinker:tinker-patch-gradle-plugin:1.7.7&apos;)</div><div class="line">        // NOTE: Do not place your application dependencies here; they belong</div><div class="line">        // in the individual module build.gradle files</div><div class="line">    &#125;</div><div class="line">&#125;allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">&#125;task clean(type: Delete) &#123;</div><div class="line">    delete rootProject.buildDir</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>#####在app的gradle文件，我们需要添加tinker的库依赖以及apply tinker的gradle插件.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line">    compile &quot;com.android.support:appcompat-v7:23.1.1&quot;</div><div class="line">    compile(&quot;com.tencent.tinker:tinker-android-lib:1.7.7&quot;) &#123; changing = true &#125;</div><div class="line">    provided(&quot;com.tencent.tinker:tinker-android-anno:1.7.7&quot;) &#123; changing = true &#125;</div><div class="line">    compile &quot;com.android.support:multidex:1.0.1&quot;</div><div class="line">&#125;</div><div class="line">//apply tinker插件</div><div class="line">apply plugin: &apos;com.tencent.tinker.patch&apos;</div></pre></td></tr></table></figure>
